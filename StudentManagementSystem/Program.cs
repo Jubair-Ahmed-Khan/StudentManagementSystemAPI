@@ -86,6 +86,8 @@ namespace STMS.Presentation
             builder.Services.AddScoped<IStudentService, StudentService>();
             builder.Services.AddHostedService<NotificationWorkerService>();
 
+
+            //Register Cors
             builder.Services.AddCors(options =>
             {
                 var appSettings = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string>();
@@ -100,6 +102,8 @@ namespace STMS.Presentation
                 });
             });
 
+            builder.Services.AddResponseCaching();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -109,49 +113,22 @@ namespace STMS.Presentation
                 app.UseSwaggerUI();
             }
 
-           app.UseMiddleware<RequestLoggingMiddleware>();
-           app.UseMiddleware<ErrorHandlingMiddleware>();
+
+            //Custom Middleware Starts
+            app.UseMiddleware<RequestLoggingMiddleware>();
+            app.UseMiddleware<ErrorHandlingMiddleware>();
+            app.UseResponseCaching();
+            //Custom Middleware Ends
 
 
             app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
 
+            //cors used
             app.UseCors("NextApp");
 
             app.Run();
         }
     }
-    /* public class Program
-     {
-         public static void Main(string[] args)
-         {
-             var builder = WebApplication.CreateBuilder(args);
-
-             // Add services to the container.
-
-             builder.Services.AddControllers();
-             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-             builder.Services.AddEndpointsApiExplorer();
-             builder.Services.AddSwaggerGen();
-
-             var app = builder.Build();
-
-             // Configure the HTTP request pipeline.
-             if (app.Environment.IsDevelopment())
-             {
-                 app.UseSwagger();
-                 app.UseSwaggerUI();
-             }
-
-             app.UseHttpsRedirection();
-
-             app.UseAuthorization();
-
-
-             app.MapControllers();
-
-             app.Run();
-         }
-     }*/
 }

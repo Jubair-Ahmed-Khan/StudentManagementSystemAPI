@@ -22,6 +22,7 @@ namespace STMS.Presentation.Controllers
        
         [HttpGet]
         [Route("GetAllStudents")]
+        [ResponseCache(Location = ResponseCacheLocation.Client, Duration = 30]
         public async Task<IActionResult> Get(int pageNumber = 1, int pageSize = 10, string searchString = "", string sortBy = "id")
         {
             _logger.LogInformation("Loading All Students");
