@@ -10,7 +10,7 @@ using STMS.Persistence.Data;
 
 namespace STMS.Persistence.Migrations
 {
-    [DbContext(typeof(StudentDbContext))]
+    [DbContext(typeof(PostgresDbContext))]
     partial class StudentDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

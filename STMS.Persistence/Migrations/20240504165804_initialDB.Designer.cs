@@ -11,7 +11,7 @@ using STMS.Persistence.Data;
 
 namespace STMS.Persistence.Migrations
 {
-    [DbContext(typeof(StudentDbContext))]
+    [DbContext(typeof(PostgresDbContext))]
     [Migration("20240504165804_initialDB")]
     partial class initialDB
     {

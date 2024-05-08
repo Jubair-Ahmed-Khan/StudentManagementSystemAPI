@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STMS.Presentation", "StudentManagementSystem\STMS.Presentation.csproj", "{BC1B869B-B5D7-491E-BF4B-E3481F58AACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STMS.Presentation", "StudentManagementSystem\STMS.Presentation.csproj", "{BC1B869B-B5D7-491E-BF4B-E3481F58AACA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STMS.Services", "STMS.Services\STMS.Services.csproj", "{CF717B09-3FBA-4F07-8403-98AAA71B1388}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STMS.Services", "STMS.Services\STMS.Services.csproj", "{CF717B09-3FBA-4F07-8403-98AAA71B1388}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STMS.Persistence", "STMS.Persistence\STMS.Persistence.csproj", "{8DDE9B39-BA8A-4F08-A4A9-F53C753B9654}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STMS.Persistence", "STMS.Persistence\STMS.Persistence.csproj", "{8DDE9B39-BA8A-4F08-A4A9-F53C753B9654}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

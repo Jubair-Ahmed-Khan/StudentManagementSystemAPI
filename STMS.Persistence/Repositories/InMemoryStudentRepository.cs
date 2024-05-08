@@ -2,14 +2,19 @@
 using STMS.Persistence.Contacts;
 using STMS.Persistence.Data;
 using STMS.Persistence.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace STMS.Persistence.Repositories
 {
-    public class StudentRepository: IStudentRepository
+    public class InMemoryStudentRepository : IStudentRepository
     {
-        private readonly PostgresDbContext _dbContext;
+        private readonly InMemoryDBContext _dbContext;
 
-        public StudentRepository(PostgresDbContext dbContext)
+        public InMemoryStudentRepository(InMemoryDBContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -52,7 +57,7 @@ namespace STMS.Persistence.Repositories
         {
             return await _dbContext.Students.FindAsync(id);
         }
-        
+
 
         //Add Student Method
         public async Task<Student?> InsertAsync(Student student)
@@ -75,7 +80,7 @@ namespace STMS.Persistence.Repositories
         {
             var studentToUpdate = await _dbContext.Students.FirstOrDefaultAsync(y => y.Id == id);
 
-            if(studentToUpdate == null)
+            if (studentToUpdate == null)
                 return null;
 
             studentToUpdate.Name = student.Name;
@@ -100,6 +105,5 @@ namespace STMS.Persistence.Repositories
 
             return studentToDelete;
         }
-
     }
 }

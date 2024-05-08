@@ -9,6 +9,7 @@ namespace STMS.Presentation.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("NextApp")]
+    [Authorize]
     public class StudentController : ControllerBase
     {
         private readonly IStudentService _service;
@@ -22,7 +23,7 @@ namespace STMS.Presentation.Controllers
        
         [HttpGet]
         [Route("GetAllStudents")]
-        [ResponseCache(Location = ResponseCacheLocation.Client, Duration = 30]
+        [ResponseCache(Location = ResponseCacheLocation.Client, Duration = 30)]
         public async Task<IActionResult> Get(int pageNumber = 1, int pageSize = 10, string searchString = "", string sortBy = "id")
         {
             _logger.LogInformation("Loading All Students");
@@ -59,7 +60,7 @@ namespace STMS.Presentation.Controllers
 
         [HttpPost]
         [Route("AddStudent")]
-        [Authorize]
+        
         public async Task<IActionResult> Post([FromBody] Student student)
         {
             if (student == null)
@@ -88,7 +89,7 @@ namespace STMS.Presentation.Controllers
 
         [HttpPut]
         [Route("UpdateStudent")]
-        [Authorize]
+        
         public async Task<IActionResult> Update(int id, Student student)
         {
             try

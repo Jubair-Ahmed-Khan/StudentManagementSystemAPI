@@ -26,7 +26,7 @@ namespace STMS.Services.Services
         }
 
         //Get Single Student By Id Method
-        public async Task<ReadStudentDto> GetByIdAsync(int id)
+        public async Task<ReadStudentDto?> GetByIdAsync(int id)
         {
 
             var selectedStudent = await _repository.GetByIdAsync(id);

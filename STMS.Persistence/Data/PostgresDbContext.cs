@@ -3,12 +3,12 @@ using STMS.Persistence.Models;
 
 namespace STMS.Persistence.Data
 {
-    public class StudentDbContext : DbContext
+    public class PostgresDbContext : DbContext
     {
         public DbSet<Student> Students { get; set; }
-        public StudentDbContext(DbContextOptions<StudentDbContext> options) : base(options)
+        public PostgresDbContext(DbContextOptions<PostgresDbContext> options):base(options)
         {
 
         }
-    }  
+    }
 }
